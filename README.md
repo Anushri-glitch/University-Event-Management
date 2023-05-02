@@ -235,6 +235,6 @@ public interface IEventDao extends JpaRepository<Event,Integer> {
 #### :purple_square: UPDATE EVENT : http://localhost:8080/eventP/eventId/{eventId}
 ![Screenshot (779)](https://user-images.githubusercontent.com/47708011/235761656-4592ee87-ca14-4acc-bbc1-28ba2aff2ea5.png)
 
-#### :purple_square: SAVE EVENT : http://localhost:8080/eventD/eventId/{eventId}
+#### :purple_square: DELETE EVENT : http://localhost:8080/eventD/eventId/{eventId}
 ![Screenshot (781)](https://user-images.githubusercontent.com/47708011/235762056-d3361eee-b747-426a-9c6d-665084ecbb16.png)
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
