@@ -26,22 +26,22 @@ public class StudentController {
     }
 
     @RequestMapping(value = "/api/studentI/{studentId}", method = RequestMethod.GET)
-    public Student getStudentById(@PathVariable String studentId){
+    public Student getStudentById(@PathVariable int studentId){
         return studentService.getStudentById(studentId);
     }
 
     @PutMapping(value = "/studentU/{studentId}")
-    public String updateStudent(@PathVariable String studentId, @RequestBody Student student){
+    public String updateStudent(@PathVariable int studentId, @RequestBody Student student){
         return studentService.updateStudent(studentId, student);
     }
 
     @DeleteMapping(value =  "/studentD/{studentId}")
-    public String deleteStudent(@PathVariable String studentId){
+    public String deleteStudent(@PathVariable int studentId){
         return studentService.deleteStudent(studentId);
     }
 
     @PatchMapping(value = "/studentDepartment/{studentId}")
-    public ResponseEntity<Student> updateStudentDepartment(@PathVariable String studentId, @RequestBody Student student){
+    public ResponseEntity<Student> updateStudentDepartment(@PathVariable int studentId, @RequestBody Student student){
         return studentService.updateStudentDepartment(studentId,student);
     }
 }

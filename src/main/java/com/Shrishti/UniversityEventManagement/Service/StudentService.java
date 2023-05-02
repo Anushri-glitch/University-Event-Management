@@ -21,54 +21,39 @@ public class StudentService {
     }
 
     public List<Student> getAllStudent() {
-        List<Student> studentList = new ArrayList<>();
-        studentList = studentDao.findAll();
-        return studentList;
+        return studentDao.findAll();
     }
 
-    public Student getStudentById(String studentId) {
-        List<Student> studentList = new ArrayList<>();
-        studentList = studentDao.findAll();
+    public Student getStudentById(int studentId) {
+        Student student = studentDao.findById(studentId).get();
+        return student;
 
-        for(Student student : studentList){
-            if(student.getStudentId().equalsIgnoreCase(studentId)){
-                return student;
-            }
-        }
-        return null;
+//        for(Student student : studentList){
+//            if(student.getStudentId() == studentId){
+//                return student;
+//            }
+//        }
+//        return null;
     }
 
 
-    public String updateStudent(String studentId, Student student) {
-        List<Student> studentList = new ArrayList<>();
-        studentList = studentDao.findAll();
-
-        for(Student oldStudent : studentList){
-            if(oldStudent.getStudentId().equalsIgnoreCase(studentId)){
-                studentDao.delete(oldStudent);
-                studentDao.save(student);
-                return "Student Updated Successfully";
-            }
-            return "Student Data is not Updated!!!";
-        }
-        return "Student Id does not exist!!!";
+    public String updateStudent(int studentId, Student student) {
+        Student oldStudent = studentDao.findById(studentId).get();
+        oldStudent.setFirstName(student.getFirstName());
+        oldStudent.setLastName(student.getLastName());
+        oldStudent.setAge(student.getAge());
+        oldStudent.setDepartment(student.getDepartment());
+        studentDao.save(oldStudent);
+        return oldStudent.toString();
     }
 
-    public String deleteStudent(String studentId) {
-        List<Student> studentList = new ArrayList<>();
-        studentList = studentDao.findAll();
-
-        for(Student student : studentList) {
-            if (student.getStudentId().equalsIgnoreCase(studentId)) {
-                studentDao.delete(student);
-                return "Student Deleted Successfully";
-            }
-            return "Student Deletion Unsuccessful!!";
-        }
-        return "Student Id does not exist!!!";
+    public String deleteStudent(int studentId) {
+        Student student = studentDao.findById(studentId).get();
+        studentDao.delete(student);
+        return "student deleted";
     }
 
-    public ResponseEntity<Student> updateStudentDepartment(String studentId, Student newStudent) {
+    public ResponseEntity<Student> updateStudentDepartment(int studentId, Student newStudent) {
         Student oldStudent = getStudentById(studentId);
         oldStudent.setDepartment(newStudent.getDepartment());
 
