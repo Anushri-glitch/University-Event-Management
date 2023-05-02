@@ -155,7 +155,7 @@ public class EventController {
 ```
 
 #### To See Controller
-:white_check_mark: [UniversityEvent-Controller]https://github.com/Anushri-glitch/University-Event-Management/tree/master/src/main/java/com/Shrishti/UniversityEventManagement/Controller)
+:white_check_mark: [UniversityEvent-Controller](https://github.com/Anushri-glitch/University-Event-Management/tree/master/src/main/java/com/Shrishti/UniversityEventManagement/Controller)
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ### :purple_square: 3. Repository : data access object (DAO) is an object that provides an abstract interface to some type of database or other persistence mechanisms.
 #### :o: IStudentDao.java
